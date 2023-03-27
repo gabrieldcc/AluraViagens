@@ -19,7 +19,11 @@ struct TiposDeViagens: Codable {
 
     static func decodeJson(_ jsonData: Data) -> TiposDeViagens? {
         do {
-            return try JSONDecoder().decode(TiposDeViagens.self, from: jsonData)
+            let jsonDecoder = JSONDecoder()
+            return try jsonDecoder.decode(
+                TiposDeViagens.self,
+                from: jsonData
+            )
         } catch {
             print(error.localizedDescription)
             return nil
