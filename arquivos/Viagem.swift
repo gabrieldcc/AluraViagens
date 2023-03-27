@@ -19,12 +19,19 @@ struct Viagem: Codable {
     var cancelamento: String
     
     static func jsonToData(_ json:[String: Any]) -> Data? {
-        return try? JSONSerialization.data(withJSONObject: json, options: [])
+        return try? JSONSerialization.data(
+            withJSONObject: json,
+            options: []
+        )
     }
 
     static func decodeJson(_ jsonData: Data) -> Viagem? {
         do {
-            return try JSONDecoder().decode(Viagem.self, from: jsonData)
+            let jsonDecoder = JSONDecoder()
+            return try jsonDecoder.decode(
+                Viagem.self,
+                from: jsonData
+            )
         } catch {
             print(error.localizedDescription)
             return nil

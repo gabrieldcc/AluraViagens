@@ -69,7 +69,8 @@ func getJsonData(listaDeViagens: [String: Any]) -> Data {
     return jsonData
 }
 
-func getlistaViagemViewModel(tiposDeViagens: TiposDeViagens?, listaDeViagens: [String: Any]) -> [ViagemViewModel] {
+func getlistaViagemViewModel(tiposDeViagens: TiposDeViagens?,
+                             listaDeViagens: [String: Any]) -> [ViagemViewModel] {
     var listaViagemViewModel: [ViagemViewModel] = []
     for sessao in listaDeViagens.keys {
         switch ViagemViewModelType(rawValue: sessao)  {
